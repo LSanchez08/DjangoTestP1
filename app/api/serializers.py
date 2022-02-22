@@ -20,3 +20,23 @@ class MovieCategoriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = MovieCategories
         fields = ['name']
+
+class MovieSchedulesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MovieSchedules
+        fields = ['name', 'time', 'room', 'movie']
+
+class FoodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Food
+        fields = ['name', 'price']
+
+class DrinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Drink
+        fields = ['name', 'price']
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Orders
+        fields = ['food', 'drink']

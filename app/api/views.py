@@ -17,5 +17,25 @@ class MovieViewSet(viewsets.ModelViewSet):
     serializer_class = MovieSerializer
     
 class MovieCategoriesViewSet(viewsets.ModelViewSet):
+    search_fields = ['name']
     queryset = MovieCategories.objects.all()
     serializer_class = MovieCategoriesSerializer
+
+class MovieSchedulesViewSet(viewsets.ModelViewSet):
+    search_fields = ['name', 'movie']
+    queryset = MovieSchedules.objects.all()
+    serializer_class = MovieSchedulesSerializer
+
+class FoodViewSet(viewsets.ModelViewSet):
+    search_fields = ['name']
+    queryset = Food.objects.all()
+    serializer_class = FoodSerializer
+
+class DrinkViewSet(viewsets.ModelViewSet):
+    search_fields = ['name']
+    queryset = Drink.objects.all()
+    serializer_class = DrinkSerializer
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    queryset = Orders.objects.all()
+    serializer_class = OrderSerializer
