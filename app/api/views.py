@@ -22,7 +22,7 @@ class MovieCategoriesViewSet(viewsets.ModelViewSet):
     serializer_class = MovieCategoriesSerializer
 
 class MovieSchedulesViewSet(viewsets.ModelViewSet):
-    search_fields = ['name', 'movie']
+    search_fields = ['movie']
     queryset = MovieSchedules.objects.all()
     serializer_class = MovieSchedulesSerializer
 
@@ -39,3 +39,7 @@ class DrinkViewSet(viewsets.ModelViewSet):
 class OrdersViewSet(viewsets.ModelViewSet):
     queryset = Orders.objects.all()
     serializer_class = OrderSerializer
+
+class TicketViewSet(viewsets.ModelViewSet):
+    queryset = Tickets.objects.all()
+    serializer_class = TicketSerializer

@@ -9,6 +9,7 @@ router.register(r'movieschedules', views.MovieSchedulesViewSet)
 router.register(r'food', views.FoodViewSet)
 router.register(r'drink', views.DrinkViewSet)
 router.register(r'order', views.OrdersViewSet)
+router.register(r'tickets', views.TicketViewSet)
 
 urlpatterns = [
     # path('', views.index, name='index')

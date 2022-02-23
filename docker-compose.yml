@@ -23,5 +23,6 @@ services:
     volumes:
       - ./db:/var/lib/mysql
       - ./db_config:/etc/mysql/conf.d
+      - ./exports:/home
     ports:
       - 3334:3306
