@@ -19,6 +19,9 @@
 -- Table structure for table `api_drink`
 --
 
+CREATE DATABASE IF NOT EXISTS `apidatabase`;
+USE `apidatabase`;
+
 DROP TABLE IF EXISTS `api_drink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
