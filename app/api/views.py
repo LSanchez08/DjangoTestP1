@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -20,6 +20,13 @@ class MovieCategoriesViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
     queryset = MovieCategories.objects.all()
     serializer_class = MovieCategoriesSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+
+        return JsonResponse({ 'detail': 'Object Deleted' })
+
 
 class MovieSchedulesViewSet(viewsets.ModelViewSet):
     search_fields = ['movie']

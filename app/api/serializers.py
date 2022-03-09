@@ -1,5 +1,5 @@
 from .models import *
-from rest_framework import serializers
+from rest_framework import serializers, fields
 
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,11 +15,20 @@ class MovieSerializer(serializers.ModelSerializer):
             'description': ret['description'],
             'category_id': ret['category']
         }
+    
 
 class MovieCategoriesSerializer(serializers.ModelSerializer):
     class Meta:
         model = MovieCategories
         fields = ['id', 'name']
+
+        def create(self, validated_data):
+            category = MovieCategories.objects.create(**validated_data)
+            return category
+        def update(self, instance, validated_data):
+            instance.name = validated_data.get('name', instance.name)
+            instance.save()
+            return instance
 
 class MovieSchedulesSerializer(serializers.ModelSerializer):
     class Meta:
